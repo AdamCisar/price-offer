@@ -176,6 +176,16 @@ const PdfDocument = ({ priceOfferDetails, userInfo }) => {
                 <Text style={styles.text}>Meno: {priceOfferDetails?.customer?.name}</Text>
                 <Text style={styles.text}>Adresa: {priceOfferDetails?.customer?.city} {priceOfferDetails?.customer?.address}</Text>
                 <Text style={styles.text}>PSČ: {priceOfferDetails?.customer?.zip}</Text>
+                { 
+                    priceOfferDetails?.customer?.ico ? (
+                        <Text style={styles.text}>IČO: {priceOfferDetails?.customer?.ico}</Text>
+                    ) : null 
+                }
+                { 
+                    priceOfferDetails?.customer?.icdph ? (
+                        <Text style={styles.text}>IČ DPH: {priceOfferDetails?.customer?.icdph}</Text>
+                    ) : null 
+                }
             </View>
             <View style={styles.userInfo}>
                 <Text style={styles.subTitle}>Spracoval:</Text>

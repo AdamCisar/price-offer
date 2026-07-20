@@ -17,7 +17,9 @@ const CustomerInfo = React.memo(({customerInfo, setPriceOfferDetails}) => {
             name: customer.name,
             address: customer.address,
             city: customer.city,
-            zip: customer.zip
+            zip: customer.zip,
+            ico: customer.ico,
+            icdph: customer.icdph
         })
 
         setPriceOfferDetails((prevData) => ({
@@ -27,7 +29,9 @@ const CustomerInfo = React.memo(({customerInfo, setPriceOfferDetails}) => {
                     name: customer.name,
                     address: customer.address,
                     city: customer.city,
-                    zip: customer.zip
+                    zip: customer.zip,
+                    ico: customer.ico,
+                    icdph: customer.icdph
                 }
         }));
 
@@ -50,7 +54,9 @@ const CustomerInfo = React.memo(({customerInfo, setPriceOfferDetails}) => {
             customer.name === customerInfo.name && 
             customer.address === customerInfo.address && 
             customer.city === customerInfo.city && 
-            customer.zip === customerInfo.zip
+            customer.zip === customerInfo.zip &&
+            customer.ico === customerInfo.ico &&
+            customer.icdph === customerInfo.icdph
         ) {
             return;
         }
@@ -62,7 +68,9 @@ const CustomerInfo = React.memo(({customerInfo, setPriceOfferDetails}) => {
                     name: customer.name,
                     address: customer.address,
                     city: customer.city,
-                    zip: customer.zip
+                    zip: customer.zip,
+                    ico: customer.ico,
+                    icdph: customer.icdph
                 }
         }));
     }
@@ -164,6 +172,28 @@ const CustomerInfo = React.memo(({customerInfo, setPriceOfferDetails}) => {
             onBlur={setCustomerToPriceOfferDetails}
             sx={{ marginBottom: 2 }}
         />
+        <TextField
+            fullWidth
+            variant="outlined"
+            label="IČO"
+            name="ico" 
+            value={customer?.ico || ''}
+            onChange={handleCustomerInputChange}
+            onBlur={setCustomerToPriceOfferDetails}
+            sx={{ marginBottom: 2 }}
+        />
+        <TextField
+            fullWidth
+            variant="outlined"
+            label="IČ DPH"
+            name="icdph" 
+            value={customer?.icdph || ''}
+            onChange={handleCustomerInputChange}
+            onBlur={setCustomerToPriceOfferDetails}
+            sx={{ marginBottom: 2 }}
+        />
+
+        
         </>
     )
 }, (prevProps, nextProps) => {
